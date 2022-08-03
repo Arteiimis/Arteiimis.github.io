@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-8_02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/04/8_02/" class="article-date">
+  <time class="dt-published" datetime="2022-08-03T16:30:54.865Z" itemprop="datePublished">2022-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/08/04/8_02/">调试作业 8_02</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="调试作业-8-02"><a href="#调试作业-8-02" class="headerlink" title="调试作业 8_02"></a>调试作业 8_02</h1><h2 id="一、下面是一个判断素数的函数，通过调试找到错误并修改"><a href="#一、下面是一个判断素数的函数，通过调试找到错误并修改" class="headerlink" title="一、下面是一个判断素数的函数，通过调试找到错误并修改"></a>一、下面是一个判断素数的函数，通过调试找到错误并修改</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">IsPrimer</span><span class="params">(<span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">sqrt</span>(n * <span class="number">1.0</span>); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (IsPrimer(i))</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d 是素数\n&quot;</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="调试之后出现错误如下"><a href="#调试之后出现错误如下" class="headerlink" title="调试之后出现错误如下"></a>调试之后出现错误如下</h3><p><img src="https://pic.imgdb.cn/item/62ea12f816f2c2beb1fdd819.jpg" alt="调试结果"></p>
+<h3 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h3><ol>
+<li><p>可确定是计算方法出现错误, 定位原因发现<strong>源代码 12 行</strong>初始化变量 i 时初始值为 0 , 导致第 14 行<code>if (n % i == 0)</code> 出现了计算错误.</p>
+</li>
+<li><p>进一步分析, 在 <code>isprime</code> 函数中, i 的值不能初始化为 <strong>1</strong> ,该行为会导致无论传入的形参为何值, 都会返回 <strong>false</strong> 值.</p>
+</li>
+<li><p>而在 <code>for (int i = 0; i &lt; sqrt(n * 1.0); i++)</code> 此行代码中, 使用<code>&lt;</code>而非<code>&lt;=</code>会导致部分非素数被输出; 单次加一的步长也会略微影响性能.</p>
+</li>
+<li><p>缺少形参小于等于二时的判断, 会导致 2 作为素数无法输出.</p>
+</li>
+</ol>
+<h3 id="修改后程序"><a href="#修改后程序" class="headerlink" title="修改后程序"></a>修改后程序</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">IsPrimer</span><span class="params">(<span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> || (n % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; n != <span class="number">2</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">3</span>; i &lt;= <span class="built_in">sqrt</span>(n) + <span class="number">1</span>; i += <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (IsPrimer(i))</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d 是素数\n&quot;</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="https://pic.imgdb.cn/item/62ea17d416f2c2beb103a542.jpg" alt="运行结果"></p>
+<h2 id="二、下面是一个冒泡程序，通过调试找到错误并修改"><a href="#二、下面是一个冒泡程序，通过调试找到错误并修改" class="headerlink" title="二、下面是一个冒泡程序，通过调试找到错误并修改"></a>二、下面是一个冒泡程序，通过调试找到错误并修改</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">BubbleSort</span><span class="params">(<span class="type">int</span> arr[<span class="number">10</span>], <span class="type">int</span> len)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> tmp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; len; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                tmp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Show</span><span class="params">(<span class="type">int</span> arr[<span class="number">10</span>], <span class="type">int</span> len)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">4</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">78</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">77</span>&#125;;</span><br><span class="line">    Show(arr, <span class="number">10</span>);</span><br><span class="line">    BubbleSort(arr, <span class="number">10</span>);</span><br><span class="line">    Show(arr, <span class="number">10</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="调试后错误如下"><a href="#调试后错误如下" class="headerlink" title="调试后错误如下"></a>调试后错误如下</h3><p><img src="https://pic.imgdb.cn/item/62ea19ea16f2c2beb10623ef.jpg" alt="错误显示"></p>
+<h3 id="错误分析-1"><a href="#错误分析-1" class="headerlink" title="错误分析"></a>错误分析</h3><ol>
+<li><p>可见, 输出的数组<strong>缺失了 78</strong>, <strong>多余了 16</strong>.</p>
+</li>
+<li><p>分析, 发现代码行 <code>for (int j = 0; j &lt; len; j++)</code> 在指针指向数组边界时, 会导致下方的交换部分<strong>越界</strong>, 导致数值错误.</p>
+</li>
+</ol>
+<h3 id="修改后程序-1"><a href="#修改后程序-1" class="headerlink" title="修改后程序"></a>修改后程序</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">BubbleSort</span><span class="params">(<span class="type">int</span> arr[<span class="number">10</span>], <span class="type">int</span> len)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> tmp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//此处为修改.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; len - i <span class="number">-1</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                tmp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Show</span><span class="params">(<span class="type">int</span> arr[<span class="number">10</span>], <span class="type">int</span> len)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">4</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">78</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">77</span>&#125;;</span><br><span class="line">    Show(arr, <span class="number">10</span>);</span><br><span class="line">    BubbleSort(arr, <span class="number">10</span>);</span><br><span class="line">    Show(arr, <span class="number">10</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="https://pic.imgdb.cn/item/62ea204a16f2c2beb10df97c.jpg" alt="运行结果"></p>
+<h2 id="三、下面是一个二分查找的代码，通过调试找到错误并修改"><a href="#三、下面是一个二分查找的代码，通过调试找到错误并修改" class="headerlink" title="三、下面是一个二分查找的代码，通过调试找到错误并修改"></a>三、下面是一个二分查找的代码，通过调试找到错误并修改</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">SearchBin</span><span class="params">(<span class="type">int</span> arr[<span class="number">10</span>], <span class="type">int</span> len, <span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> high = len;</span><br><span class="line">    <span class="type">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] == key)</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &lt; key)</span><br><span class="line">            low = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            high = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">//查找失败</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">15</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> index = SearchBin(arr, <span class="number">10</span>, i);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, index); <span class="comment">//查看下标是否正确</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="调试后出现错误如下"><a href="#调试后出现错误如下" class="headerlink" title="调试后出现错误如下"></a>调试后出现错误如下</h3><p><img src="https://pic.imgdb.cn/item/62ea22b516f2c2beb110d908.jpg" alt="调试结果"><br>之后程序进入死循环</p>
+<h3 id="错误分析-2"><a href="#错误分析-2" class="headerlink" title="错误分析"></a>错误分析</h3><ol>
+<li><p>程序查找进行到 10 之后, 继续进行查找会造成访问数组越界, 导致程序进入死循环.</p>
+</li>
+<li><p>初步判断为在<code>key</code>值大于数组的最大数值时, 低位指针和中间指针会重合, 高位指针将不会发生改变, 导致程序陷入死循环.</p>
+</li>
+<li><p>解决方案只需要在每次刷新高, 低, 中位指针时错位, 避免低位指针与中位指针重叠, 并且改变循环条件, 使得高低指针重叠时依旧可以进入循环.</p>
+</li>
+</ol>
+<p><em>同时改变输出格式, 便于观察.</em></p>
+<h3 id="修改后程序-2"><a href="#修改后程序-2" class="headerlink" title="修改后程序"></a>修改后程序</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">SearchBin</span><span class="params">(<span class="type">int</span> arr[<span class="number">10</span>], <span class="type">int</span> len, <span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> high = len;</span><br><span class="line">    <span class="type">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span> (low &lt;= high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] == key)</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &lt; key)</span><br><span class="line">            low = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            high = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">//查找失败</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">15</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> index = SearchBin(arr, <span class="number">10</span>, i);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d  &quot;</span>, index); <span class="comment">//查看下标是否正确</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="https://pic.imgdb.cn/item/62ea26ba16f2c2beb115fde9.jpg" alt="运行结果"></p>
+<h4 id="另附第四题"><a href="#另附第四题" class="headerlink" title="另附第四题"></a>另附第四题</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> arr[] = <span class="string">&quot;abcdefghijk&quot;</span>;</span><br><span class="line">    <span class="type">char</span> brr[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> lenarr = <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]);</span><br><span class="line">    <span class="type">int</span> lenbrr = <span class="keyword">sizeof</span>(brr) / <span class="keyword">sizeof</span>(brr[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lenarr; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        brr[i] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lenbrr; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, brr[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/08/04/8_02/" data-id="cl6dw117c0000scn40v9y3jix" data-title="调试作业 8_02" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GitHub学生认证教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/30/GitHub%E5%AD%A6%E7%94%9F%E8%AE%A4%E8%AF%81%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2022-07-30T08:33:06.000Z" itemprop="datePublished">2022-07-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/30/GitHub%E5%AD%A6%E7%94%9F%E8%AE%A4%E8%AF%81%E6%95%99%E7%A8%8B/">GitHub学生认证教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<blockquote>
+<p>今年年初的时候我就申请过一次Github的学生身份认证, 提交申请之后就一直没有管, 直到前段时间发现Copilot几个月之后就要开始付费了, 又发现学生认证可以免费继续使用, 又去认证界面看了看, 发现当时认证的时候开着VPN, 导致验证失败了…</p>
+</blockquote>
+<h2 id="提交验证前准备"><a href="#提交验证前准备" class="headerlink" title="提交验证前准备"></a>提交验证前准备</h2><ul>
+<li>💻 电脑 (不需要VPN,现在Github教育网点可以直连.)</li>
+<li>📱 手机 or 其他设备 (本教程需要双设备, 只要另一台<strong>有摄像头</strong>就ok)</li>
+<li>📄 确保学信网你的学籍信息在有效期内.</li>
+</ul>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><blockquote>
+<p>GitHub官方给出了申请学生开发包的文档, 前三步都是一样的, 只有在上传学生身份证明时, 需要用到学信网的身份证明, 这里给出简单步骤.</p>
+</blockquote>
+<ol>
+<li><p>转到<a target="_blank" rel="noopener" href="https://education.github.com/">GitHub Education</a>, 在右上角点击 <strong>Benefits</strong> (福利).</p>
+</li>
+<li><p>在 **”Which best describes your academic status?”**（哪一项最准确描述了您的学业身份？）下，选择 <strong>Student</strong>（学生）.<br><img src="https://pic.imgdb.cn/item/62e4e6fcf54cd3f937292a3b.jpg" alt="学生认证"></p>
+</li>
+<li><p>选择或者添加用于学校的电子邮件地址.<br><img src="https://pic.imgdb.cn/item/62e4e712f54cd3f93729b784.jpg" alt="邮件地址"></p>
+</li>
+<li><p>输入学校名称, 在下拉菜单栏中选择你的学校<br><img src="https://pic.imgdb.cn/item/62e4e213f54cd3f93709b6a8.png" alt="选择学校"></p>
+</li>
+<li><p>随便描述一下打算如何使用GitHub.<br><img src="https://pic.imgdb.cn/item/62e4e2a5f54cd3f9370d5503.png" alt="用途"></p>
+</li>
+<li><p>之后点 <strong>Continue</strong> 就进入了最关键的步骤.</p>
+</li>
+</ol>
+<h2 id="关键步骤"><a href="#关键步骤" class="headerlink" title="关键步骤"></a>关键步骤</h2><ol>
+<li><p>登录<a target="_blank" rel="noopener" href="https://my.chsi.com.cn/archive/index.jsp">学信档案网</a>, 完成注册登录, 进入主界面.<br>  <img src="https://pic.imgdb.cn/item/62e4e17af54cd3f93705c41e.png" alt="学信网"></p>
+</li>
+<li><p>选择<strong>在线验证报告</strong>, 如之前学校要求过申请, 则直接点击查看, 如没有申请过, 请自行Google如何申请学信网验证报告.<br>  <img src="https://pic.imgdb.cn/item/62e4e320f54cd3f937108249.png" alt="验证报告"></p>
+</li>
+<li><p>选择查看<strong>教育部学籍在线验证报告</strong><br>  <img src="https://pic.imgdb.cn/item/62e4e3b3f54cd3f937141db4.png" alt="查看验证报告"></p>
+</li>
+<li><p>进入之后选择<strong>查看</strong>自己的报告 (如果显示过期了直接延长就好)<br>  <img src="https://pic.imgdb.cn/item/62e4e444f54cd3f93717e5c3.png" alt="选择报告"></p>
+</li>
+<li><p>配合网页翻译, <strong>将中文报告翻译为英文</strong>, 备用<br>  <img src="https://pic.imgdb.cn/item/62e4e53df54cd3f9371e4b93.jpg" alt="网页报告"></p>
+</li>
+<li><p>用手机打开具体步骤中 <strong>Continue</strong> 之后的网页, 将摄像头选为后置摄像头<br>  <img src="https://pic.imgdb.cn/item/62e4e6e4f54cd3f937288713.jpg" alt="选择摄像头"><br>  <em>此处为GitHub官方文档的图片</em></p>
+</li>
+<li><p>拍摄之前备用的学信网认证页面, <strong>确保学校一栏清晰</strong>即可上传, 如遇失败就多试几次.</p>
+</li>
+</ol>
+<h2 id="申请成功后邮件如下"><a href="#申请成功后邮件如下" class="headerlink" title="申请成功后邮件如下"></a>申请成功后邮件如下</h2><p><img src="https://pic.imgdb.cn/item/62e4e7f3f54cd3f9372f5eee.jpg" alt="申请成功邮件参考"><br>从提交申请到收到成功邮件好像只有不到一小时吧, 格式正确文件完美审查时间很快的.</p>
+<h2 id="总结要点"><a href="#总结要点" class="headerlink" title="总结要点"></a>总结要点</h2><ul>
+<li>注意提交申请时不要开VPN, 最好就身处学校所在城市.</li>
+<li>文档需要英文翻译, 直接使用edge自带翻译即可.</li>
+<li>双机申请是最方便的方法了, 如果实在不行, 网上有人卡出来过上传图片, 可以去取个经.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/07/30/GitHub%E5%AD%A6%E7%94%9F%E8%AE%A4%E8%AF%81%E6%95%99%E7%A8%8B/" data-id="cl6dw117p0001scn4eojbfc4k" data-title="GitHub学生认证教程" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/08/04/8_02/">调试作业 8_02</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/30/GitHub%E5%AD%A6%E7%94%9F%E8%AE%A4%E8%AF%81%E6%95%99%E7%A8%8B/">GitHub学生认证教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
