@@ -199,7 +199,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-12 00:49:47" itemprop="dateModified" datetime="2022-08-12T00:49:47+08:00">2022-08-12</time>
+      <time title="Modified: 2022-08-12 00:59:39" itemprop="dateModified" datetime="2022-08-12T00:59:39+08:00">2022-08-12</time>
     </span>
 
   
@@ -212,8 +212,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="KPM学习笔记-amp-amp-详细解析"><a href="#KPM学习笔记-amp-amp-详细解析" class="headerlink" title="KPM学习笔记 &amp;&amp; 详细解析"></a>KPM学习笔记 &amp;&amp; 详细解析</h1><hr>
-<blockquote>
+          <h1 id="KPM学习笔记-amp-amp-详细解析"><a href="#KPM学习笔记-amp-amp-详细解析" class="headerlink" title="KPM学习笔记 &amp;&amp; 详细解析"></a>KPM学习笔记 &amp;&amp; 详细解析</h1><blockquote>
 <p><em>记录一下这个折磨了我好久搞不明白的字符串匹配算法, 最近重新花时间整理了一下思路, 结合代码实现成功了, 但是还是觉得没有完全理解, 所以写点笔记整理一下思路吧</em>.</p>
 </blockquote>
 <h2 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h2><p>最开始接触到KMP是在力扣刷题的时候遇到这道题: <strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/implement-strstr/">28. 实现 strStr()</a></strong> 最开始拿暴力算法尝试了一下, 性能实在太差, 刷到 <strong>labuladong</strong> 的解析才开始尝试用KMP.</p>
@@ -223,8 +222,8 @@
 <li><strong>匹配代码主体</strong>, 依赖next数组来判断匹配行为,</li>
 </ul>
 <p>我们约定, <code>pat</code>为模式串, <code>txt</code>为主串, KMP算法简单来说就是通过处理模式串, 得出一个一维数组 <strong>next</strong> , 来实现不回溯的字符串匹配.</p>
-<h2 id="KMP算法分析"><a href="#KMP算法分析" class="headerlink" title="KMP算法分析"></a>KMP算法分析</h2><h3 id="分析匹配过程"><a href="#分析匹配过程" class="headerlink" title="分析匹配过程"></a>分析匹配过程</h3><p>通常的暴力匹配需要反复回溯, 浪费了很大一部分时间, 但是每次回溯都相当于让已经匹配的部分沦为无用功, 所以我们应该如何&#x3D;&#x3D;利用已经匹配的部分&#x3D;&#x3D;, <strong>保持指向<code>txt</code>的指针不回溯, 修改指向<code>pat</code>的指针, 让模式串尽量移动到有效位置</strong>?</p>
-<hr>
+<h2 id="KMP算法分析"><a href="#KMP算法分析" class="headerlink" title="KMP算法分析"></a>KMP算法分析</h2><p><strong>分析匹配过程:</strong></p>
+<p>通常的暴力匹配需要反复回溯, 浪费了很大一部分时间, 但是每次回溯都相当于让已经匹配的部分沦为无用功, 所以我们应该如何&#x3D;&#x3D;利用已经匹配的部分&#x3D;&#x3D;, <strong>保持指向<code>txt</code>的指针不回溯, 修改指向<code>pat</code>的指针, 让模式串尽量移动到有效位置</strong>?</p>
 <p><em><strong>我们通过图片来解析指向<code>pat</code>的指针的移动规律.</strong></em><br><strong>情况一:</strong></p>
 <center>
 
@@ -255,7 +254,8 @@
 </blockquote>
 <p>用数学公式总结为此:</p>
 <center>
-***P[ 0 ~ k-1 ] == P[ j-k ~ j-1 ]***
+
+<p><em><strong>P[ 0 ~ k-1 ] &#x3D;&#x3D; P[ j-k ~ j-1 ]</strong></em></p>
 </center>
 
 <p><strong>图片理解:</strong></p>
@@ -270,7 +270,6 @@
 <blockquote>
 <p><em>在这里的&#x3D;&#x3D;前缀集合&#x3D;&#x3D;表示</em> <strong>除去最后一个字符后的所有子串集合</strong>, <em>同理&#x3D;&#x3D;后缀集合&#x3D;&#x3D;指的是</em> <strong>除去第一个字符后的所有子串的集合</strong>, </p>
 </blockquote>
-<hr>
 <p>下面我们使用这个解释，来再一次手动求解上面的过程：<br><strong>首先, 如下图所示:</strong></p>
 <center>
 
@@ -295,7 +294,6 @@
 <p><img src="https://pic.imgdb.cn/item/62f52e5416f2c2beb121ba05.png"></p>
 </center>
 
-<hr>
 <p>而上述过程, 分解为计算机步骤, 则是如下过程:</p>
 <ol>
 <li>找出前缀<code>pre</code>, 设为<code>pre[0 ~ m]</code>;</li>
@@ -310,7 +308,6 @@
 <blockquote>
 <p><strong>请牢记next数组的定义, 因为之后的解释时完全围绕这个定义解释的.</strong></p>
 </blockquote>
-<hr>
 <p>下面先给出最常见的next数组求法, 之后给出详细解析:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief 获取next数组</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * @param p 字符串指针</span></span><br><span class="line"><span class="comment"> * @param len 字符串长度</span></span><br><span class="line"><span class="comment"> * @param next next数组指针</span></span><br><span class="line"><span class="comment"> * @return int </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">get_next</span><span class="params">(<span class="type">char</span> *p, <span class="type">int</span> len, <span class="type">int</span> *next)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, k = <span class="number">-1</span>;</span><br><span class="line">    next[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; len - <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">-1</span> || p[i] == p[k])</span><br><span class="line">            next[++i] = ++k;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            k = next[k];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代码十分简洁. 但是我第一次阅读是在摸不着头, 它的计算依据是什么?<br>接下来, 我们自己推导思路, 现在始终记住, <code>next[j]</code>的值 (也就是 <strong>k</strong> ), 表示当<code>P[j] != T[i]</code>时,  <strong>j</strong> 指针下一步需要移动到的位置.</p>
