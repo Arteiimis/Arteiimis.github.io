@@ -28,26 +28,26 @@
 <meta property="og:site_name" content="Arteiimis">
 <meta property="og:description" content="KPM学习笔记 &amp;&amp; 详细解析  记录一下这个折磨了我好久搞不明白的字符串匹配算法, 最近重新花时间整理了一下思路, 结合代码实现成功了, 但是还是觉得没有完全理解, 所以写点笔记整理一下思路吧.  问题引入最开始接触到KMP是在力扣刷题的时候遇到这道题: 28. 实现 strStr() 最开始拿暴力算法尝试了一下, 性能实在太差, 刷到 labuladong 的解析才开始尝试用K">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17083912-49365b7e67cd4877b2f501074dae68d2.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17083929-a9ccfb08833e4cf1a42c30f05608f8f5.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17084030-82e4b71b85a440c5a636d57503931415.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17084037-cc3c34200809414e9421c316ceba2cda.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17084056-66930855432b4357bafbf8d6c76c1840.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17083912-49365b7e67cd4877b2f501074dae68d2.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17083929-a9ccfb08833e4cf1a42c30f05608f8f5.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17084030-82e4b71b85a440c5a636d57503931415.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17084037-cc3c34200809414e9421c316ceba2cda.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17084258-efd2e95d3644427ebc0304ed3d7adefb.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17084310-29f9f8dbb6034151a383e7ccf6f5583e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e3516f2c2beb121612a.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e4216f2c2beb12185f9.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e4a16f2c2beb1219c61.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e5416f2c2beb121ba05.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e5e16f2c2beb121d751.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e3516f2c2beb121612a.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e4216f2c2beb12185f9.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e4a16f2c2beb1219c61.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52e5416f2c2beb121ba05.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52ebf16f2c2beb122f3ca.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52ef016f2c2beb1237f4f.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/62f51cdb16f2c2beb1e5caef.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/62f51ce016f2c2beb1e5dc17.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17122358-fd7e52dd382c4268a8ff52b85bff465d.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/416010/201308/17122439-e349fed25e974e7886a27d18871ae48a.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52f0616f2c2beb123c1f3.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62f52f1a16f2c2beb123fd34.png">
 <meta property="article:published_time" content="2022-08-11T09:56:12.000Z">
-<meta property="article:modified_time" content="2022-08-11T16:24:40.431Z">
+<meta property="article:modified_time" content="2022-08-11T16:32:18.164Z">
 <meta property="article:author" content="Arteiimis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images0.cnblogs.com/blog/416010/201308/17083912-49365b7e67cd4877b2f501074dae68d2.png">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/62f52e3516f2c2beb121612a.png">
 
 
 <link rel="canonical" href="http://example.com/2022/08/11/KPM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
@@ -221,7 +221,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-12 00:24:40" itemprop="dateModified" datetime="2022-08-12T00:24:40+08:00">2022-08-12</time>
+      <time title="Modified: 2022-08-12 00:32:18" itemprop="dateModified" datetime="2022-08-12T00:32:18+08:00">2022-08-12</time>
     </span>
 
   
@@ -250,25 +250,25 @@
 <p><em><strong>我们通过图片来解析指向<code>pat</code>的指针的移动规律.</strong></em><br><strong>情况一:</strong></p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17083912-49365b7e67cd4877b2f501074dae68d2.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e3516f2c2beb121612a.png"></p>
 </center>
 
 <p>像这样, <strong>C</strong> 和 <strong>D</strong> 不匹配, 此时我们需要移动指针到哪里? 显示是首位 <strong>A</strong> , 为什么? 因为最前面有一个 <strong>A</strong> 相同.</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17083929-a9ccfb08833e4cf1a42c30f05608f8f5.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e4216f2c2beb12185f9.png"></p>
 </center>
 
 <p><strong>情况二:</strong></p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17084030-82e4b71b85a440c5a636d57503931415.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e4a16f2c2beb1219c61.png"></p>
 </center>
 
 <p>也是类似, <strong>C</strong> 和 <strong>B</strong> 匹配失败, 此时我们应该移动首位 <strong>AB</strong> , 因为同时有两个字符可以不必要匹配:</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17084037-cc3c34200809414e9421c316ceba2cda.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e5416f2c2beb121ba05.png"></p>
 </center>
 
 <p>至此我们可以看出一些端倪, &#x3D;&#x3D;当匹配失败时&#x3D;&#x3D;, <strong>j</strong> 要移动到的下一个位置 <strong>k</strong> 存在这样的性质: &#x3D;&#x3D;最前面的 <strong>&#x3D;&#x3D;k&#x3D;&#x3D;</strong> 个字符和 <strong>&#x3D;&#x3D;j&#x3D;&#x3D;</strong> 之前的最后 <strong>&#x3D;&#x3D;k&#x3D;&#x3D;</strong> 个字符是一样的.&#x3D;&#x3D;</p>
@@ -280,7 +280,7 @@
 <p><strong>图片理解:</strong></p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17084056-66930855432b4357bafbf8d6c76c1840.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e5e16f2c2beb121d751.png"></p>
 </center>
 
 <blockquote>
@@ -293,25 +293,25 @@
 <p>下面我们使用这个解释，来再一次手动求解上面的过程：<br><strong>首先, 如下图所示:</strong></p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17083912-49365b7e67cd4877b2f501074dae68d2.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e3516f2c2beb121612a.png"></p>
 </center>
 
 <p>此时, <strong>C</strong> 和 <strong>D</strong> 不匹配, 我们应该将 <strong>j</strong> 指针移动到哪里? <strong>j</strong> 位置前方的子串为 <code>ABA</code>, 该字串的前缀集合为 <code>&#123;A, AB&#125;</code> , 后缀集合为 <code>&#123;A, BA&#125;</code> , 最大的重复子串是 <code>A</code> , 只有一个字符, 所以 <strong>j</strong> 移动到 <strong>k</strong> 即第一位:</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17083929-a9ccfb08833e4cf1a42c30f05608f8f5.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e4216f2c2beb12185f9.png"></p>
 </center>
 
 <p><strong>再分析第二种情况:</strong></p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17084030-82e4b71b85a440c5a636d57503931415.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e4a16f2c2beb1219c61.png"></p>
 </center>
 
 <p>此时, 在 <strong>j</strong> 前的子串为<code>ABCAB</code>, 前缀集合为<code>&#123;A, AB, ABC, ABCA&#125;</code>, 后缀集合为<code>&#123;B, AB, CAB, BCAB&#125;</code>, 最大重复子串为<code>AB</code>, 个数是两个字符, 因此 <strong>j</strong> 移动到 <strong>k</strong> 即第二位:</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17084037-cc3c34200809414e9421c316ceba2cda.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52e5416f2c2beb121ba05.png"></p>
 </center>
 
 <hr>
@@ -336,14 +336,14 @@
 <p>先来看第一个: 当 <strong>j</strong> 为 <em><strong>0</strong></em> 时, 如果此时已经比匹配, 怎么办?</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17084258-efd2e95d3644427ebc0304ed3d7adefb.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52ebf16f2c2beb122f3ca.png"></p>
 </center>
 
 <p>如图, 此时 <strong>j</strong> 已经在最左边, 不能再移动, 此时应该后移 <strong>i</strong> 指针, 所以在代码中会有<code>next[0] = -1</code>这个初始化.</p>
 <p>如果此时 <strong>j</strong> 为 <em><strong>1</strong></em> 呢?</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17084310-29f9f8dbb6034151a383e7ccf6f5583e.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52ef016f2c2beb1237f4f.png"></p>
 </center>
 
 <p>显然, j指针一定需要后移到0位置的.</p>
@@ -362,13 +362,13 @@
 <p>而当<code>P[k] != P[j]</code>, 如下图所示:</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17122358-fd7e52dd382c4268a8ff52b85bff465d.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52f0616f2c2beb123c1f3.png"></p>
 </center>
 
 <p>这种情况在代码上的体现就是这一句 <code>k = next[k]</code>; 原因请看下图:</p>
 <center>
 
-<p><img src="https://images0.cnblogs.com/blog/416010/201308/17122439-e349fed25e974e7886a27d18871ae48a.png"></p>
+<p><img src="https://pic.imgdb.cn/item/62f52f1a16f2c2beb123fd34.png"></p>
 </center>
 
 <p>此时我们已经不可能找到<code>ABAB</code>这个最长的后缀串了, 但还是可能找到<code>AB</code> <code>B</code>这样的前缀串, 其实也就是将模式串的前缀与字符串的对应后缀对齐, 从对齐的部分的下一个位置继续匹配.</p>
