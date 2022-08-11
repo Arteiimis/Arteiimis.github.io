@@ -199,7 +199,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-12 00:59:39" itemprop="dateModified" datetime="2022-08-12T00:59:39+08:00">2022-08-12</time>
+      <time title="Modified: 2022-08-12 01:57:15" itemprop="dateModified" datetime="2022-08-12T01:57:15+08:00">2022-08-12</time>
     </span>
 
   
@@ -223,7 +223,7 @@
 </ul>
 <p>我们约定, <code>pat</code>为模式串, <code>txt</code>为主串, KMP算法简单来说就是通过处理模式串, 得出一个一维数组 <strong>next</strong> , 来实现不回溯的字符串匹配.</p>
 <h2 id="KMP算法分析"><a href="#KMP算法分析" class="headerlink" title="KMP算法分析"></a>KMP算法分析</h2><p><strong>分析匹配过程:</strong></p>
-<p>通常的暴力匹配需要反复回溯, 浪费了很大一部分时间, 但是每次回溯都相当于让已经匹配的部分沦为无用功, 所以我们应该如何&#x3D;&#x3D;利用已经匹配的部分&#x3D;&#x3D;, <strong>保持指向<code>txt</code>的指针不回溯, 修改指向<code>pat</code>的指针, 让模式串尽量移动到有效位置</strong>?</p>
+<p>通常的暴力匹配需要反复回溯, 浪费了很大一部分时间, 但是每次回溯都相当于让已经匹配的部分沦为无用功, 所以我们应该如何<strong>利用已经匹配的部分</strong>, <strong>保持指向<code>txt</code>的指针不回溯, 修改指向<code>pat</code>的指针, 让模式串尽量移动到有效位置</strong>?</p>
 <p><em><strong>我们通过图片来解析指向<code>pat</code>的指针的移动规律.</strong></em><br><strong>情况一:</strong></p>
 <center>
 
@@ -248,9 +248,9 @@
 <p><img src="https://pic.imgdb.cn/item/62f52e5416f2c2beb121ba05.png"></p>
 </center>
 
-<p>至此我们可以看出一些端倪, &#x3D;&#x3D;当匹配失败时&#x3D;&#x3D;, <strong>j</strong> 要移动到的下一个位置 <strong>k</strong> 存在这样的性质: &#x3D;&#x3D;最前面的 <strong>&#x3D;&#x3D;k&#x3D;&#x3D;</strong> 个字符和 <strong>&#x3D;&#x3D;j&#x3D;&#x3D;</strong> 之前的最后 <strong>&#x3D;&#x3D;k&#x3D;&#x3D;</strong> 个字符是一样的.&#x3D;&#x3D;</p>
+<p>至此我们可以看出一些端倪, 当匹配失败时, <strong>j</strong> 要移动到的下一个位置 <strong>k</strong> 存在这样的性质: 最前面的 <strong>k</strong> 个字符和 <strong>j</strong> 之前的最后 <strong>k</strong> 个字符是一样的.</p>
 <blockquote>
-<p><em><strong>请&#x3D;&#x3D;仔细阅读上面的结论&#x3D;&#x3D;, 完全理解这句话, 就能明白为什么我们再进行匹配之前要计算模式串的next数组了</strong></em>.</p>
+<p><em><strong>请仔细阅读上面的结论, 完全理解这句话, 就能明白为什么我们再进行匹配之前要计算模式串的next数组了</strong></em>.</p>
 </blockquote>
 <p>用数学公式总结为此:</p>
 <center>
@@ -268,7 +268,7 @@
 <p><strong>补充说明:<br>该规律是KMP算法的关键，KMP算法是利用待匹配的子串自身的这种性质，来提高匹配速度。该性质在许多其他中版本的解释中还可以描述成：</strong>若子串的前缀集和后缀集中，重复的最长子串的长度为 <em>k</em> ，则下次匹配子串的 <em>j</em> 可以移动到第 <em>k</em> 位(下标为0为第0位).** 我们将这个解释定义成最大重复子串解释。*</p>
 </blockquote>
 <blockquote>
-<p><em>在这里的&#x3D;&#x3D;前缀集合&#x3D;&#x3D;表示</em> <strong>除去最后一个字符后的所有子串集合</strong>, <em>同理&#x3D;&#x3D;后缀集合&#x3D;&#x3D;指的是</em> <strong>除去第一个字符后的所有子串的集合</strong>, </p>
+<p><em>在这里的<strong>前缀集合</strong>表示</em> <strong>除去最后一个字符后的所有子串集合</strong>, <em>同理<strong>后缀集合</strong>指的是</em> <strong>除去第一个字符后的所有子串的集合</strong>, </p>
 </blockquote>
 <p>下面我们使用这个解释，来再一次手动求解上面的过程：<br><strong>首先, 如下图所示:</strong></p>
 <center>
@@ -304,7 +304,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="求next数组"><a href="#求next数组" class="headerlink" title="求next数组"></a>求next数组</h3><p><strong>&#x3D;&#x3D;接下来的内容更是重量级&#x3D;&#x3D;</strong>, 如何求<code>pet</code>模式串每一个位置的 <strong>k</strong> ? 毕竟 <strong>p</strong> 的每一个位置都有可能与<code>txt</code>主串发生不匹配, 所以我们选择使用一个一维数组<code>next[j] = k</code>, 表示当<code>T[i] != P[j]</code>时, <strong>j</strong> 指针的下一个位置.</p>
+<h3 id="求next数组"><a href="#求next数组" class="headerlink" title="求next数组"></a>求next数组</h3><p><strong>接下来的内容更是重量级</strong>, 如何求<code>pet</code>模式串每一个位置的 <strong>k</strong> ? 毕竟 <strong>p</strong> 的每一个位置都有可能与<code>txt</code>主串发生不匹配, 所以我们选择使用一个一维数组<code>next[j] = k</code>, 表示当<code>T[i] != P[j]</code>时, <strong>j</strong> 指针的下一个位置.</p>
 <blockquote>
 <p><strong>请牢记next数组的定义, 因为之后的解释时完全围绕这个定义解释的.</strong></p>
 </blockquote>
